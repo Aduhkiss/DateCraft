@@ -30,6 +30,8 @@ public class ProfileCommand implements CommandExecutor {
 		ItemStack together = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "I am with: " + PlayerManager.getAccountFromPlayer(player).togetherWith);
 		
 		
+		//Bukkit.getLogger().info("DEBUG: " + PlayerManager.getAccountFromPlayer(player).relationshipStatus);
+		
 		if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("MARRIED")) {
 			inv.setItem(11, gender);
 			inv.setItem(13, relStatusMarried);

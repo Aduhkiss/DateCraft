@@ -15,27 +15,27 @@ public class ServerUtil {
 	}
 	
 	// Alerts to announce to the server
-	public static void dateAlert(Player p1, Player p2) {
+	public static void dateAlert(String p1, String p2) {
 		for(Player pl : Bukkit.getOnlinePlayers()) {
-			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1.getName() + " is now dating " + p2.getName() + "!");
+			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1 + " is now dating " + p2 + "!");
 		}
 	}
 	
-	public static void breakupAlert(Player p1, Player p2) {
+	public static void breakupAlert(String p1, String p2) {
 		for(Player pl : Bukkit.getOnlinePlayers()) {
-			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1.getName() + " has broken up with " + p2.getName() + "!");
+			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1 + " has broken up with " + p2 + "!");
 		}
 	}
 	
-	public static void marryAlert(Player p1, Player p2) {
+	public static void marryAlert(String p1, String p2) {
 		for(Player pl : Bukkit.getOnlinePlayers()) {
-			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1.getName() + " is now married to " + p2.getName() + "!");
+			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1 + " is now married to " + p2 + "!");
 		}
 	}
 	
-	public static void divorceAlert(Player p1, Player p2) {
+	public static void divorceAlert(String p1, Player p2) {
 		for(Player pl : Bukkit.getOnlinePlayers()) {
-			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1.getName() + " has divorced " + p2.getName() + "!");
+			pl.sendMessage("" + ChatColor.GREEN + ChatColor.BOLD + p1 + " has divorced " + p2 + "!");
 		}
 	}
 }

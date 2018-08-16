@@ -3,7 +3,7 @@ package net.angusbeefgaming.datecraft.player;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.entity.Player;
+import org.bukkit.OfflinePlayer;
 
 public class PlayerManager {
 	/*
@@ -11,9 +11,9 @@ public class PlayerManager {
 	 */
 	public static List<Account> onlinePlayers = new ArrayList<Account>();
 	
-	public static Account getAccountFromPlayer(Player player) {
+	public static Account getAccountFromPlayer(Object player) {
 		for(Account acc : onlinePlayers) {
-			if(acc.getName().equals(player.getName())) {
+			if(acc.getName().equals(((OfflinePlayer) player).getName())) {
 				return acc;
 			}
 		}

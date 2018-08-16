@@ -38,7 +38,7 @@ public class DateCommand implements CommandExecutor {
 		}
 		
 		if(PlayerManager.getAccountFromPlayer(target).dateRequest.equalsIgnoreCase(player.getName())) {
-			ServerUtil.dateAlert(target, player);
+			ServerUtil.dateAlert(target.getName(), player.getName());
 			
 			PlayerManager.getAccountFromPlayer(target).dateRequest = null;
 			PlayerManager.getAccountFromPlayer(player).dateRequest = null;
