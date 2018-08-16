@@ -50,6 +50,9 @@ public class DateCommand implements CommandExecutor {
 			PlayerManager.getAccountFromPlayer(target).togetherWith = player.getName();
 			PlayerManager.getAccountFromPlayer(player).relationshipStatus = target.getName();
 			
+			PlayerManager.getAccountFromPlayer(target).partnerID = player.getUniqueId().toString();
+			PlayerManager.getAccountFromPlayer(player).partnerID = target.getUniqueId().toString();
+			
 			// Then we should be all good to go!
 			return true;
 		}

@@ -17,6 +17,7 @@ public class Account {
 	// Player Data
 	public String relationshipStatus;
 	public String togetherWith;
+	public String partnerID;
 	public String gender;
 	
 	public String dateRequest;
@@ -38,6 +39,7 @@ public class Account {
 		ServerUtil.log("Grabbing player data for " + getName());
 		this.relationshipStatus = DataManager.getRelationshipStatus(myPlayer);
 		this.togetherWith = DataManager.getTogetherWith(myPlayer);
+		this.partnerID = DataManager.getPartnerID(myPlayer);
 		this.gender = DataManager.getGender(myPlayer);
 	}
 	
@@ -45,6 +47,7 @@ public class Account {
 		ServerUtil.log("Saving player data for " + getName());
 		DateCraftCore.getInstance().getData().set(myPlayer.getUniqueId() + ".relationshipStatus", relationshipStatus);
 		DateCraftCore.getInstance().getData().set(myPlayer.getUniqueId() + ".togetherWith", togetherWith);
+		DateCraftCore.getInstance().getData().set(myPlayer.getUniqueId() + ".partnerID", partnerID);
 		DateCraftCore.getInstance().getData().set(myPlayer.getUniqueId() + ".gender", gender);
 		try {
 			DateCraftCore.getInstance().getData().save(DateCraftCore.getInstance().getDataFile());

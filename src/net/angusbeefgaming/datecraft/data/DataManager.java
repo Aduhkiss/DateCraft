@@ -17,6 +17,7 @@ public class DataManager {
 		ServerUtil.log("Setting up player data for " + player.getName() + "...");
 		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".relationshipStatus", "NONE");
 		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".togetherWith", "NONE");
+		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".partnerID", "NONE");
 		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".gender", "NONE");
 		try {
 			DateCraftCore.getInstance().getData().save(DateCraftCore.getInstance().getDataFile());
@@ -50,6 +51,10 @@ public class DataManager {
 	
 	public static String getTogetherWith(Player player) {
 		return (String) DateCraftCore.getInstance().getData().get(player.getUniqueId() + ".togetherWith");
+	}
+	
+	public static String getPartnerID(Player player) {
+		return (String) DateCraftCore.getInstance().getData().get(player.getUniqueId() + ".partnerID");
 	}
 	
 	public static String getGender(Player player) {
