@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 
 import net.angusbeefgaming.datecraft.DateCraftCore;
 import net.angusbeefgaming.datecraft.data.DataManager;
+import net.angusbeefgaming.datecraft.util.ChatType;
 import net.angusbeefgaming.datecraft.util.ServerUtil;
 
 public class Account {
@@ -23,8 +24,12 @@ public class Account {
 	public String dateRequest;
 	public String marryRequest;
 	
+	public ChatType chatType;
+	
 	public Account(Player player) {
 		this.myPlayer = player;
+		// Whenever the player joins, switch them to public chat
+		chatType = ChatType.PUBLIC;
 	}
 	
 	public Player getPlayer() {
@@ -55,5 +60,9 @@ public class Account {
 			ServerUtil.log("There was an error while saving data.");
 			e.printStackTrace();
 		}
+	}
+	
+	public ChatType getChatType() {
+		return chatType;
 	}
 }

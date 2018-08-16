@@ -3,6 +3,10 @@ main: net.angusbeefgaming.datecraft.DateCraftCore
 version: 1.0
 author: ["Atticus Zambrana"]
 commands:
+  chat:
+    description: Switch chat modes
+  marry:
+    description: Marry another player
   hug:
     description: Hug another player
   breakup:

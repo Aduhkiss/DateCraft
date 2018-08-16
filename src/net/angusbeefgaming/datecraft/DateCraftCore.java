@@ -10,9 +10,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.angusbeefgaming.datecraft.command.BreakupCommand;
+import net.angusbeefgaming.datecraft.command.ChatCommand;
 import net.angusbeefgaming.datecraft.command.DCAdminCommand;
 import net.angusbeefgaming.datecraft.command.DateCommand;
 import net.angusbeefgaming.datecraft.command.GenderCommand;
+import net.angusbeefgaming.datecraft.command.MarryCommand;
 import net.angusbeefgaming.datecraft.command.ProfileCommand;
 import net.angusbeefgaming.datecraft.data.DataManager;
 import net.angusbeefgaming.datecraft.fun.HugCommand;
@@ -54,6 +56,8 @@ public class DateCraftCore extends JavaPlugin {
 		getCommand("date").setExecutor(new DateCommand());
 		getCommand("breakup").setExecutor(new BreakupCommand());
 		getCommand("hug").setExecutor(new HugCommand());
+		getCommand("marry").setExecutor(new MarryCommand());
+		getCommand("chat").setExecutor(new ChatCommand());
 		
 		// Set up Saving All Data every 10 minutes
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, 
