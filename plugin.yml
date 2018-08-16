@@ -3,3 +3,5 @@ main: net.angusbeefgaming.datecraft.DateCraftCore
 version: 1.0
 author: ["Atticus Zambrana"]
 commands:
+  gender:
+    description: Set your gender

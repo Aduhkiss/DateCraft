@@ -9,6 +9,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.angusbeefgaming.datecraft.command.GenderCommand;
+import net.angusbeefgaming.datecraft.data.DataManager;
+import net.angusbeefgaming.datecraft.handler.PlayerLoginHandler;
 import net.angusbeefgaming.datecraft.util.ServerUtil;
 
 public class DateCraftCore extends JavaPlugin {
@@ -31,6 +34,22 @@ public class DateCraftCore extends JavaPlugin {
 		Bukkit.getLogger().info("DateCraft > Starting Datecraft Core...");
 		setupFiles();
 		instance = this;
+		
+		// Add Event Handlers
+		getServer().getPluginManager().registerEvents(new PlayerLoginHandler(), this);
+		
+		// Add Commands
+		getCommand("gender").setExecutor(new GenderCommand());
+		
+		// Set up Saving All Data every 10 minutes
+		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, 
+				new Runnable() {
+			
+		    public void run() {
+		    	ServerUtil.log("Saving Player Data of All Online Players...");
+		    	DataManager.saveAllData();
+		    }
+		}, 20, 6000);
 	}
 	
     public FileConfiguration getConfig() {
@@ -39,6 +58,14 @@ public class DateCraftCore extends JavaPlugin {
     
     public FileConfiguration getData() {
         return this.data;
+    }
+    
+    public File getDataFile() {
+    	return dataFile;
+    }
+    
+    public File getConfigFile() {
+    	return configFile;
     }
     
     public static DateCraftCore getInstance() {

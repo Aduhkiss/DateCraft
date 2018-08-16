@@ -1,8 +1,12 @@
 package net.angusbeefgaming.datecraft.data;
 
+import java.io.IOException;
+
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import net.angusbeefgaming.datecraft.DateCraftCore;
+import net.angusbeefgaming.datecraft.player.PlayerManager;
 import net.angusbeefgaming.datecraft.util.ServerUtil;
 
 public class DataManager {
@@ -14,11 +18,23 @@ public class DataManager {
 		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".relationshipStatus", "NONE");
 		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".togetherWith", "NONE");
 		DateCraftCore.getInstance().getData().set(player.getUniqueId() + ".gender", "NONE");
+		try {
+			DateCraftCore.getInstance().getData().save(DateCraftCore.getInstance().getDataFile());
+		} catch (IOException e) {
+			ServerUtil.log("There was an error while saving data.");
+			e.printStackTrace();
+		}
+	}
+	
+	// For saving player data of all players
+	public static void saveAllData() {
+		for(Player pla : Bukkit.getOnlinePlayers()) {
+			PlayerManager.getAccountFromPlayer(pla).saveData();
+		}
 	}
 	
 	public static boolean hasPlayerData(Player player) {
-		String checker = (String) DateCraftCore.getInstance().getData().get(player.getUniqueId() + ".relationshipStatus");
-		if(checker == null) {
+		if(DateCraftCore.getInstance().getData().get(player.getUniqueId() + ".relationshipStatus") == null) {
 			return false;
 		}
 		else {
