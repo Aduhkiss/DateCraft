@@ -3,5 +3,7 @@ main: net.angusbeefgaming.datecraft.DateCraftCore
 version: 1.0
 author: ["Atticus Zambrana"]
 commands:
+  dcadmin:
+    description: DateCraft Admin Panel
   gender:
     description: Set your gender

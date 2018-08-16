@@ -9,8 +9,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.angusbeefgaming.datecraft.command.DCAdminCommand;
 import net.angusbeefgaming.datecraft.command.GenderCommand;
 import net.angusbeefgaming.datecraft.data.DataManager;
+import net.angusbeefgaming.datecraft.handler.DCAdminListener;
 import net.angusbeefgaming.datecraft.handler.PlayerLoginHandler;
 import net.angusbeefgaming.datecraft.util.ServerUtil;
 
@@ -37,9 +39,11 @@ public class DateCraftCore extends JavaPlugin {
 		
 		// Add Event Handlers
 		getServer().getPluginManager().registerEvents(new PlayerLoginHandler(), this);
+		getServer().getPluginManager().registerEvents(new DCAdminListener(), this);
 		
 		// Add Commands
 		getCommand("gender").setExecutor(new GenderCommand());
+		getCommand("dcadmin").setExecutor(new DCAdminCommand());
 		
 		// Set up Saving All Data every 10 minutes
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, 
