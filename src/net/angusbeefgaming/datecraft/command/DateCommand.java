@@ -6,6 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import net.angusbeefgaming.datecraft.managers.DatingManager;
 import net.angusbeefgaming.datecraft.player.PlayerManager;
 import net.angusbeefgaming.datecraft.util.ServerUtil;
 import net.md_5.bungee.api.ChatColor;
@@ -13,6 +14,10 @@ import net.md_5.bungee.api.ChatColor;
 public class DateCommand implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args) {
 		Player player = (Player) sender;
+		if(!DatingManager.isDatingAllowed()) {
+			player.sendMessage(ChatColor.RED + "Dating has been disabled by an administrator.");
+			return false;
+		}
 		if(args.length < 1) {
 			player.sendMessage(ChatColor.RED + "Who would you like to date?");
 			return false;

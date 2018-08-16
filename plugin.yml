@@ -3,6 +3,8 @@ main: net.angusbeefgaming.datecraft.DateCraftCore
 version: 1.0
 author: ["Atticus Zambrana"]
 commands:
+  hug:
+    description: Hug another player
   breakup:
     description: Breakup from your relationship
   date:

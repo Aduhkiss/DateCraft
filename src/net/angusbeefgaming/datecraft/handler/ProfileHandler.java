@@ -17,6 +17,7 @@ public class ProfileHandler implements Listener {
 		
 		if(!inv.getTitle().equals("My Profile")) return;
 		if(item == null) return;
+		if(item.getItemMeta() == null) return;
 		
 		e.setCancelled(true);
 		

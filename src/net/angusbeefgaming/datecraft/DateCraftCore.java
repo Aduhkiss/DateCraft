@@ -15,6 +15,7 @@ import net.angusbeefgaming.datecraft.command.DateCommand;
 import net.angusbeefgaming.datecraft.command.GenderCommand;
 import net.angusbeefgaming.datecraft.command.ProfileCommand;
 import net.angusbeefgaming.datecraft.data.DataManager;
+import net.angusbeefgaming.datecraft.fun.HugCommand;
 import net.angusbeefgaming.datecraft.handler.DCAdminListener;
 import net.angusbeefgaming.datecraft.handler.PlayerLoginHandler;
 import net.angusbeefgaming.datecraft.handler.ProfileHandler;
@@ -52,6 +53,7 @@ public class DateCraftCore extends JavaPlugin {
 		getCommand("profile").setExecutor(new ProfileCommand());
 		getCommand("date").setExecutor(new DateCommand());
 		getCommand("breakup").setExecutor(new BreakupCommand());
+		getCommand("hug").setExecutor(new HugCommand());
 		
 		// Set up Saving All Data every 10 minutes
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, 

@@ -10,6 +10,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.angusbeefgaming.datecraft.managers.DatingManager;
 import net.md_5.bungee.api.ChatColor;
 
 public class DCAdminCommand implements CommandExecutor {
@@ -25,9 +26,18 @@ public class DCAdminCommand implements CommandExecutor {
 		
 		
 		ItemStack saveAll = nameItem(Material.FEATHER, "Save All Player Data");
+		ItemStack allowDating = nameItem(Material.IRON_SWORD, "Allow Player Dating");
+		ItemStack disallowDating = nameItem(Material.IRON_SWORD, "Block Player Dating");
 		
 		
 		inv.setItem(0, saveAll);
+		
+		if(DatingManager.isDatingAllowed()) {
+			inv.setItem(1, disallowDating);
+		}
+		else {
+			inv.setItem(1, allowDating);
+		}
 		
 		player.openInventory(inv);
 		

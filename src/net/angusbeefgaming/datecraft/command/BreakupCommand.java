@@ -35,6 +35,8 @@ public class BreakupCommand implements CommandExecutor {
 		PlayerManager.getAccountFromPlayer(player).togetherWith = "NONE";
 		PlayerManager.getAccountFromPlayer(player).partnerID = "NONE";
 		
+		PlayerManager.getAccountFromPlayer(player).saveData();
+		
 		DateCraftCore.getInstance().getData().set(target.getUniqueId() + ".relationshipStatus", "NONE");
 		DateCraftCore.getInstance().getData().set(target.getUniqueId() + ".togetherWith", "NONE");
 		DateCraftCore.getInstance().getData().set(target.getUniqueId() + ".partnerID", "NONE");

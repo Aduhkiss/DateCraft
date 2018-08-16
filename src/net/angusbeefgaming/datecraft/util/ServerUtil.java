@@ -1,6 +1,7 @@
 package net.angusbeefgaming.datecraft.util;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import net.md_5.bungee.api.ChatColor;
@@ -12,6 +13,13 @@ public class ServerUtil {
 	
 	public static void log(String message) {
 		Bukkit.getLogger().info("DateCraft > " + message);
+	}
+	
+	public static void announce(String message) {
+		for(Player pla : Bukkit.getOnlinePlayers()) {
+			pla.sendMessage(message);
+			pla.playSound(pla.getLocation(), Sound.BLOCK_NOTE_PLING, 1f, 1f);
+		}
 	}
 	
 	// Alerts to announce to the server

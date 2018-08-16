@@ -23,29 +23,14 @@ public class ProfileCommand implements CommandExecutor {
 		ItemStack gender = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "My Gender: " + PlayerManager.getAccountFromPlayer(player).gender);
 		ItemStack relStatus = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "My Relationship Status: " + PlayerManager.getAccountFromPlayer(player).relationshipStatus);
 		
-		ItemStack relStatusSingle = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "My Relationship Status: Single");
-		ItemStack relStatusMarried = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "My Relationship Status: Married");
-		ItemStack relStatusTaken = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "My Relationship Status: Dating");
-		
 		ItemStack together = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "I am with: " + PlayerManager.getAccountFromPlayer(player).togetherWith);
 		
 		
 		//Bukkit.getLogger().info("DEBUG: " + PlayerManager.getAccountFromPlayer(player).relationshipStatus);
 		
-		if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("MARRIED")) {
-			inv.setItem(11, gender);
-			inv.setItem(13, relStatusMarried);
-			inv.setItem(15, together);
-		}
-		else if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("DATING")) {
-			inv.setItem(11, gender);
-			inv.setItem(13, relStatusTaken);
-			inv.setItem(15, together);
-		}
-		else {
-			inv.setItem(12, gender);
-			inv.setItem(14, relStatusSingle);
-		}
+		inv.setItem(11, gender);
+		inv.setItem(13, relStatus);
+		inv.setItem(15, together);
 		
 		player.openInventory(inv);
 		
