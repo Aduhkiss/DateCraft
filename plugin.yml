@@ -1,0 +1,5 @@
+name: DateCraft
+main: net.angusbeefgaming.datecraft.DateCraftCore
+version: 1.0
+author: ["Atticus Zambrana"]
+commands:
