@@ -1,4 +1,4 @@
-package player;
+package net.angusbeefgaming.datecraft.player;
 
 import java.util.ArrayList;
 import java.util.List;

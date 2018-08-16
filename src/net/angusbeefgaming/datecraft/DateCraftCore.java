@@ -19,6 +19,8 @@ public class DateCraftCore extends JavaPlugin {
 	 * 
 	 * (C) 2018 Infinity Games Ltd.
 	 */
+	static DateCraftCore instance;
+	
     private File configFile;
     private FileConfiguration config;
     
@@ -27,6 +29,8 @@ public class DateCraftCore extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		Bukkit.getLogger().info("DateCraft > Starting Datecraft Core...");
+		setupFiles();
+		instance = this;
 	}
 	
     public FileConfiguration getConfig() {
@@ -35,6 +39,10 @@ public class DateCraftCore extends JavaPlugin {
     
     public FileConfiguration getData() {
         return this.data;
+    }
+    
+    public static DateCraftCore getInstance() {
+    	return instance;
     }
     
     private void setupFiles() {
