@@ -30,21 +30,19 @@ public class ProfileCommand implements CommandExecutor {
 		ItemStack together = nameItem(Material.NAME_TAG, "" + ChatColor.AQUA + ChatColor.BOLD + "I am with: " + PlayerManager.getAccountFromPlayer(player).togetherWith);
 		
 		
-		if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("NONE")) {
-			inv.setItem(12, gender);
-			inv.setItem(14, relStatusSingle);
+		if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("MARRIED")) {
+			inv.setItem(11, gender);
+			inv.setItem(13, relStatusMarried);
+			inv.setItem(15, together);
+		}
+		else if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("DATING")) {
+			inv.setItem(11, gender);
+			inv.setItem(13, relStatusTaken);
+			inv.setItem(15, together);
 		}
 		else {
-			if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("MARRIED")) {
-				inv.setItem(11, gender);
-				inv.setItem(13, relStatusMarried);
-				inv.setItem(15, together);
-			}
-			if((PlayerManager.getAccountFromPlayer(player).relationshipStatus).equals("DATING")) {
-				inv.setItem(11, gender);
-				inv.setItem(13, relStatusTaken);
-				inv.setItem(15, together);
-			}
+			inv.setItem(12, gender);
+			inv.setItem(14, relStatusSingle);
 		}
 		
 		player.openInventory(inv);

@@ -13,7 +13,7 @@ public class PlayerManager {
 	
 	public static Account getAccountFromPlayer(Player player) {
 		for(Account acc : onlinePlayers) {
-			if(acc.getRealName().equals(player.getName())) {
+			if(acc.getName().equals(player.getName())) {
 				return acc;
 			}
 		}

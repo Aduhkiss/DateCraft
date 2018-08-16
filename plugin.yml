@@ -3,6 +3,10 @@ main: net.angusbeefgaming.datecraft.DateCraftCore
 version: 1.0
 author: ["Atticus Zambrana"]
 commands:
+  breakup:
+    description: Breakup from your relationship
+  date:
+    description: Get into a relationship with another player
   profile:
     description: Show your profile
   dcadmin:
