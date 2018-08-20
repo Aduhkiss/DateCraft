@@ -18,7 +18,9 @@ import net.angusbeefgaming.datecraft.command.MarryCommand;
 import net.angusbeefgaming.datecraft.command.ProfileCommand;
 import net.angusbeefgaming.datecraft.data.DataManager;
 import net.angusbeefgaming.datecraft.fun.HugCommand;
+import net.angusbeefgaming.datecraft.fun.KissCommand;
 import net.angusbeefgaming.datecraft.handler.DCAdminListener;
+import net.angusbeefgaming.datecraft.handler.PlayerChatHandler;
 import net.angusbeefgaming.datecraft.handler.PlayerLoginHandler;
 import net.angusbeefgaming.datecraft.handler.ProfileHandler;
 import net.angusbeefgaming.datecraft.util.ServerUtil;
@@ -48,6 +50,7 @@ public class DateCraftCore extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new PlayerLoginHandler(), this);
 		getServer().getPluginManager().registerEvents(new DCAdminListener(), this);
 		getServer().getPluginManager().registerEvents(new ProfileHandler(), this);
+		getServer().getPluginManager().registerEvents(new PlayerChatHandler(), this);
 		
 		// Add Commands
 		getCommand("gender").setExecutor(new GenderCommand());
@@ -56,10 +59,11 @@ public class DateCraftCore extends JavaPlugin {
 		getCommand("date").setExecutor(new DateCommand());
 		getCommand("breakup").setExecutor(new BreakupCommand());
 		getCommand("hug").setExecutor(new HugCommand());
+		getCommand("kiss").setExecutor(new KissCommand());
 		getCommand("marry").setExecutor(new MarryCommand());
 		getCommand("chat").setExecutor(new ChatCommand());
 		
-		// Set up Saving All Data every 10 minutes
+		// Set up Saving All Data
 		Bukkit.getScheduler().scheduleSyncRepeatingTask(this, 
 				new Runnable() {
 			

@@ -3,6 +3,8 @@ main: net.angusbeefgaming.datecraft.DateCraftCore
 version: 1.0
 author: ["Atticus Zambrana"]
 commands:
+  kiss:
+    description: Kiss another player
   chat:
     description: Switch chat modes
   marry:
